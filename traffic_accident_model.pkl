@@ -1,0 +1,13 @@
+import os
+import joblib
+import urllib.request
+
+MODEL_URL = "https://your_direct_model_url/traffic_accident_model.pkl"
+MODEL_PATH = "traffic_accident_model.pkl"
+
+# Download the model if it doesn't exist
+if not os.path.exists(MODEL_PATH):
+    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+
+# Load model
+model = joblib.load(MODEL_PATH)
